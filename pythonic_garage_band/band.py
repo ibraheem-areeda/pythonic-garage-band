@@ -1,44 +1,43 @@
 class Musician():
-   pass
-
-class Guitarist(Musician):
-    def __init__(self, name):
-          self.name = name
-
     def __str__(self):
-          return f"My name is {self.name} and I play guitar"
+          return f"My name is {self.name} and I play {self.get_instrument()}"
     
     def __repr__(self):
-          return f"Guitarist instance. Name = {self.name}"
-    def get_instrument(name):
+          return f"{self.play_solo()} instance. Name = {self.name}"
+
+
+class Guitarist(Musician):
+    def __init__(self, name ):
+          self.name = name
+
+    def get_instrument(cls):
          return "guitar"
+    
+    def play_solo (cls):
+         return "Guitarist"
 
 
 class Drummer(Musician):
     def __init__(self, name):
           self.name = name
 
-    def __str__(self):
-          return f"My name is {self.name} and I play drums"
-    
-    def __repr__(self):
-          return f"Drummer instance. Name = {self.name}"
-    def get_instrument(name):
+    def get_instrument(cls):
         return "drums"
+    
+    def play_solo (cls):
+         return "Drummer"
 
 
 class Bassist(Musician):
     def __init__(self, name):
           self.name = name
 
-    def __str__(self):
-          return f"My name is {self.name} and I play bass"
-    
-    def __repr__(self):
-          return f"Bassist instance. Name = {self.name}"
-    
-    def get_instrument(name):
+    def get_instrument(cls):
         return "bass"
+
+    def play_solo (cls):
+         return "Bassist"
+
 
 class Band(Musician):
       def __init__ (self, name = None, play_solos = None, members = []):
@@ -48,4 +47,3 @@ class Band(Musician):
 
     
    
-
