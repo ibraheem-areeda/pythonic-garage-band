@@ -3,7 +3,7 @@ class Musician():
           return f"My name is {self.name} and I play {self.get_instrument()}"
     
     def __repr__(self):
-          return f"{self.play_solo()} instance. Name = {self.name}"
+          return f"{self.role()} instance. Name = {self.name}"
 
 
 class Guitarist(Musician):
@@ -13,8 +13,11 @@ class Guitarist(Musician):
     def get_instrument(cls):
          return "guitar"
     
-    def play_solo (cls):
+    def role (cls):
          return "Guitarist"
+    
+    def play_solo(cls):
+         return "face melting guitar solo"
 
 
 class Drummer(Musician):
@@ -24,8 +27,11 @@ class Drummer(Musician):
     def get_instrument(cls):
         return "drums"
     
-    def play_solo (cls):
+    def role (cls):
          return "Drummer"
+    
+    def play_solo(cls):
+        return "rattle boom crash"
 
 
 class Bassist(Musician):
@@ -35,15 +41,40 @@ class Bassist(Musician):
     def get_instrument(cls):
         return "bass"
 
-    def play_solo (cls):
+    def role (cls):
          return "Bassist"
-
+    
+    def play_solo(cls):
+        return "bom bom buh bom"
 
 class Band(Musician):
-      def __init__ (self, name = None, play_solos = None, members = []):
+
+    def __init__ (self, name = None, members = [] ):
         self.name = name
         self.members = members
-        self.play_solos = play_solos
-
+        
+    def __str__(self):
+        return f"The band name is {self.name} and the musicians are {self.members()}"
     
-   
+    def __repr__(self):
+        return f"Name = {self.name}"
+    
+    def __len__(self):
+        return len(self.instances)
+    
+    def role(self):
+        if self.name == "guitar": return "face melting guitar solo"
+        return f"Band instance.Name = {self.name}"
+    
+    def play_solos (self):
+        solos = []
+        for person in self.members:
+             solos.append(person.play_solo())
+        return solos
+    
+
+
+
+
+
+
