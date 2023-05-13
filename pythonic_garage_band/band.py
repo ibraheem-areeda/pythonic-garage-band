@@ -58,7 +58,7 @@ class Band(Musician):
         Band.instances.append(self)
         
     def __str__(self):
-        return f"The band name is {self.name} and the musicians are {self.members()}"
+        return f"The band name is {self.name} and the musicians are {self.members}"
     
     def __repr__(self):
         return f"Name = {self.name}"
@@ -80,6 +80,17 @@ class Band(Musician):
          return  cls.instances
     
     
+if __name__ == '__main__':
+
+    members = [
+    Guitarist("omar abdallat"),
+    Bassist("mtaeb alsaqaar"),
+    Drummer("mohammad allozi"),
+    ]
+
+    some_band = Band("jordan band", members)
+     
+    print(some_band)
 
 
 
